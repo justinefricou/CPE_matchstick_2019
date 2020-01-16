@@ -7,12 +7,6 @@
 
 #include "matchstick.h"
 
-/*void ais_turn(int *board, int nb_lines, int max_matches, int *winner)
-{
-
-    update_board(board, line, nb_matches); //
-}*/
-
 void ais_turn(int *board, int max_matches, int *winner)
 {
     int line = 0;
@@ -25,11 +19,11 @@ void ais_turn(int *board, int max_matches, int *winner)
         *winner = 1;
 }
 
+/* [min, max[ :
+*line = random() % (max - min + 1) + min;
+*matches = random() % (max - min + 1) + min;*/
 void get_params_ai(int *line, int *matches, int *board, int max_matches)
 {
-    /**line = random() % (max - min + 1) + min;
-    *matches = random() % (max - min + 1) + min;*/
-
     while (*line <= 0 && *matches <= 0) {
         *line = random() % (board[0]) + 1;
         *matches = random() % (max_matches) + 1;

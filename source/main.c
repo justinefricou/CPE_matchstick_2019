@@ -21,7 +21,7 @@ int main(int argc, char **argv)
     max_matches = my_get_nbr(argv[2]);
     if (create_board(&board, nb_lines) == 84)
         return (84);
-    winner = play(board, max_matches); //
+    winner = play(board, max_matches);
     free(board);
     return (winner);
 }
