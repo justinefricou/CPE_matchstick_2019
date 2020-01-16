@@ -11,17 +11,16 @@ int play(int *board, int max_matches)
 {
     int winner = 0;
 
+    display_board(board);
     while (1) {
-        display_board(board);
         players_turn(board, max_matches, &winner);
         display_board(board);
-        /*if (winner != 0)
-            break;*/
-        //ais_turn(board, nb_lines, max_matches, &winner); //
+        if (winner != 0)
+            break;
+        ais_turn(board, max_matches, &winner);
         display_board(board);
-        /*if (winner != 0)
-            break;*/
-        break;
+        if (winner != 0)
+            break;
     }
     display_end_message(winner);
     return (winner);
@@ -38,6 +37,15 @@ void update_board(int *board, int line, int nb_matches, int players_turn)
     write(1, " match(es) from line ", 21);
     my_put_nbr(line);
     write(1, "\n", 1);
+}
+
+int no_matches_remaining(int *board)
+{
+    for (int i = 0; i < board[0]; i++) {
+        if (board[i + 1] != 0)
+            return (0);
+    }
+    return (1);
 }
 
 void display_end_message(int winner)
@@ -62,9 +70,3 @@ int my_put_nbr(int nbr)
     write(1, &character, 1);
     return (0);
 }
-
-/*void ais_turn(int *board, int nb_lines, int max_matches, int *winner)
-{
-
-    update_board(board, line, nb_matches); //
-}*/

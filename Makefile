@@ -12,7 +12,8 @@ SRC	=	source/main.c\
 		source/get_board.c\
 		source/display_board.c\
 		source/play.c\
-		source/player_interactions.c
+		source/player_interactions.c\
+		source/ai.c
 
 OBJ	=	$(SRC:.c=.o)
 

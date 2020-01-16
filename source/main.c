@@ -16,6 +16,7 @@ int main(int argc, char **argv)
 
     if (detect_errors(argc, argv))
         return (84);
+    srandom(time(NULL));
     nb_lines = my_get_nbr(argv[1]);
     max_matches = my_get_nbr(argv[2]);
     if (create_board(&board, nb_lines) == 84)
