@@ -15,6 +15,8 @@ void players_turn(int *board, int max_matches, int *winner)
     write(1, "\nYour turn:\n", 12);
     read_params(&line, &nb_matches, board, max_matches);
     update_board(board, line, nb_matches, 1);
+    if (no_matches_remaining(board))
+        *winner = 2;
 }
 
 void read_params(int *line, int *matches, int *board, int max_matches)
@@ -26,7 +28,6 @@ void read_params(int *line, int *matches, int *board, int max_matches)
         while (get_line(&buff_line, line, board[0]) == -1)
             free(buff_line);
         free(buff_line);
-        write(1, "Matches: ", 8);
         if (get_matches(&b_matches, matches, max_matches, board[*line]) == -1) {
             *line = 0;
             *matches = 0;
@@ -64,6 +65,7 @@ int get_matches(char **buf, int *matches, int max_matches, int remaining_mat)
     size_t n = 0;
     int length = 0;
 
+    write(1, "Matches: ", 9);
     getline(buf, &n, stdin);
     for (; (*buf)[length] != '\n' && (*buf)[length] != 0; length++);
     (*buf)[length] = 0;
