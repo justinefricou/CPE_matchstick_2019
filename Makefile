@@ -10,8 +10,9 @@ NAME	=	matchstick
 SRC	=	source/main.c\
 		source/error_detection.c\
 		source/get_board.c\
+		source/display_board.c\
 		source/play.c\
-		source/display_board.c
+		source/player_interactions.c
 
 OBJ	=	$(SRC:.c=.o)
 

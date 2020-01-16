@@ -11,16 +11,16 @@ int detect_errors(int argc, char **argv)
 {
     if (argc != 3)
         return (84);
-    if (!is_int(argv[1]) || !is_int(argv[2]))
+    if (!is_positive_int(argv[1]) || !is_positive_int(argv[2]))
         return (84);
     return (0);
 }
 
-int is_int(char *str)
+int is_positive_int(char *str)
 {
     int i = 0;
 
-    if (str[i] == '-' || str[i] == '+')
+    if (str[i] == '+')
         i++;
     for ( ; str[i] != 0; i++) {
         if (str[i] < '0' || '9' < str[i])

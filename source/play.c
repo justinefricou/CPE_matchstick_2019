@@ -7,12 +7,13 @@
 
 #include "matchstick.h"
 
-int play(int *board, int max_matches) //
+int play(int *board, int max_matches)
 {
     int winner = 0;
 
     while (1) {
-        //players_turn(board, nb_lines, max_matches, &winner); //
+        display_board(board);
+        players_turn(board, max_matches, &winner);
         display_board(board);
         /*if (winner != 0)
             break;*/
@@ -39,6 +40,14 @@ void update_board(int *board, int line, int nb_matches, int players_turn)
     write(1, "\n", 1);
 }
 
+void display_end_message(int winner)
+{
+    if (winner == 2)
+        write (1, "You lost, too bad...\n", 21);
+    else
+        write(1, "I lost... snif... but I'll get you next time!!\n", 47);
+}
+
 int my_put_nbr(int nbr)
 {
     char character = 0;
@@ -54,32 +63,7 @@ int my_put_nbr(int nbr)
     return (0);
 }
 
-void display_end_message(int winner)
-{
-    if (winner == 2)
-        write (1, "You lost, too bad...\n", 21);
-    else
-        write(1, "I lost... snif... but I'll get you next time!!\n", 47);
-}
-
-/*void players_turn(int *board, int nb_lines, int max_matches, int *winner)
-{
-    int line = 0;
-    int nb_matches = 0;
-
-    read_params(&line, &nb_matches, nb_lines, max_matches);
-    update_board(board, line, nb_matches); //
-}
-
-void read_params(int *line, int *nb_matches, int nb_lines, int max_matches)
-{
-    // read params until no error
-
-}
-
-
-
-void ais_turn(int *board, int nb_lines, int max_matches, int *winner)
+/*void ais_turn(int *board, int nb_lines, int max_matches, int *winner)
 {
 
     update_board(board, line, nb_matches); //

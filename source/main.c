@@ -18,8 +18,6 @@ int main(int argc, char **argv)
         return (84);
     nb_lines = my_get_nbr(argv[1]);
     max_matches = my_get_nbr(argv[2]);
-    if (nb_lines <= 0 || max_matches <= 0)
-        return (84);
     if (create_board(&board, nb_lines) == 84)
         return (84);
     winner = play(board, max_matches); //
