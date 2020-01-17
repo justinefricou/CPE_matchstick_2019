@@ -32,7 +32,7 @@ void update_board(int *board, int line, int nb_matches, int players_turn)
     if (players_turn)
         write(1, "Player removed ", 15);
     else
-        write(1, "IA removed ", 11);
+        write(1, "AI removed ", 11);
     my_put_nbr(nb_matches);
     write(1, " match(es) from line ", 21);
     my_put_nbr(line);
