@@ -34,8 +34,8 @@ void display_end_message(int winner);
 int my_put_nbr(int nbr);
 
 // player_interactions.c
-void players_turn(int *board, int max_matches, int *winner);
-void read_params(int *line, int *nb_matches, int *board, int max_matches);
+int players_turn(int *board, int max_matches, int *winner);
+int read_params(int *line, int *nb_matches, int *board, int max_matches);
 int get_line(char **buffer, int *line, int nb_lines);
 int get_matches(char **buf, int *matches, int max_matches, int remaining_mat);
 int check_nb_matches(int nb_matches, int max_matches, int remaining_matches);

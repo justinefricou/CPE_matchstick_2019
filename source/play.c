@@ -13,7 +13,8 @@ int play(int *board, int max_matches)
 
     display_board(board);
     while (1) {
-        players_turn(board, max_matches, &winner);
+        if (players_turn(board, max_matches, &winner) == 0)
+            return (0);
         display_board(board);
         if (winner != 0)
             break;
