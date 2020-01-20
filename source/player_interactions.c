@@ -28,7 +28,7 @@ int read_params(int *line, int *matches, int *board, int max_matches)
     int return_gl = -1;
 
     while (*line <= 0 && *matches <= 0) {
-        while (return_gl < 0) {
+        while (return_gl == -1) {
             return_gl = get_line(&buff_line, line, board[0]);
             free(buff_line);
         }
@@ -39,8 +39,9 @@ int read_params(int *line, int *matches, int *board, int max_matches)
         if (return_gl == -1) {
             *line = 0;
             *matches = 0;
-        } else if (return_gl == 0)
+        } else if (return_gl == 0) {
             return (0);
+        }
     }
     return (1);
 }
@@ -88,7 +89,7 @@ int get_matches(char **buf, int *matches, int max_matches, int remaining_mat)
     *matches = my_get_nbr(*buf);
     if (check_nb_matches(*matches, max_matches, remaining_mat) == -1)
         return (-1);
-    return (0);
+    return (1);
 }
 
 int check_nb_matches(int nb_matches, int max_matches, int remaining_matches)
