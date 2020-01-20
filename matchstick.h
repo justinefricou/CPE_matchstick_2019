@@ -43,5 +43,8 @@ int check_nb_matches(int nb_matches, int max_matches, int remaining_matches);
 // ai.c
 void ais_turn(int *board, int max_matches, int *winner);
 void get_params_ai(int *line, int *matches, int *board, int max_matches);
+int get_last_line(int *board);
+void get_params_last_line(int line, int *matches, int *board, int max_matches);
+void get_random_params(int *line, int *matches, int *board, int max_matches);
 
 #endif // DEF_MATCHSTICK

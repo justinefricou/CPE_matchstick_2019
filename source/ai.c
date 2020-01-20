@@ -19,10 +19,40 @@ void ais_turn(int *board, int max_matches, int *winner)
         *winner = 1;
 }
 
-/* [min, max[ :
-*line = random() % (max - min + 1) + min;
-*matches = random() % (max - min + 1) + min;*/
 void get_params_ai(int *line, int *matches, int *board, int max_matches)
+{
+    int last_line = 0;
+
+    last_line = get_last_line(board);
+    if (last_line != 0) {
+        *line = last_line;
+        get_params_last_line(*line, matches, board, max_matches);
+    } else {
+        get_random_params(line, matches, board, max_matches);
+    }
+}
+
+int get_last_line(int *board)
+{
+    int last_line = 0;
+
+    for (int i = 1; i <= board[0]; i++) {
+        if (board[i] != 0 && last_line == 0)
+            last_line = i;
+        else if (board[i] != 0 && last_line != 0)
+            return (0);
+    }
+    return (last_line);
+}
+
+void get_params_last_line(int line, int *matches, int *board, int max_matches)
+{
+    *matches = (board[line] - 1) % (max_matches + 1);
+    if (*matches == 0)
+        *matches = 1;
+}
+
+void get_random_params(int *line, int *matches, int *board, int max_matches)
 {
     while (*line <= 0 && *matches <= 0) {
         *line = random() % (board[0]) + 1;
