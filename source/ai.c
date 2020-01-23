@@ -28,7 +28,7 @@ void get_params_ai(int *line, int *matches, int *board, int max_matches)
         *line = last_line;
         get_params_last_line(*line, matches, board, max_matches);
     } else {
-        get_random_params(line, matches, board, max_matches);
+        get_move_marienbad(line, matches, board, max_matches);
     }
 }
 

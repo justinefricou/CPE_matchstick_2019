@@ -47,4 +47,10 @@ int get_last_line(int *board);
 void get_params_last_line(int line, int *matches, int *board, int max_matches);
 void get_random_params(int *line, int *matches, int *board, int max_matches);
 
+// marienbad.c
+void get_move_marienbad(int *line, int *matches, int *board, int max_matches);
+void add_nbr_to_columns(int nbr, int columns[]);
+int get_odd_nbrs(int *board);
+int get_best_move_on_line(int line, int *matches, int *board, int max_matches);
+
 #endif // DEF_MATCHSTICK
