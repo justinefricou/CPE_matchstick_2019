@@ -45,7 +45,6 @@ void ais_turn(int *board, int max_matches, int *winner);
 void get_params_ai(int *line, int *matches, int *board, int max_matches);
 int get_last_line(int *board);
 void get_params_last_line(int line, int *matches, int *board, int max_matches);
-void get_random_params(int *line, int *matches, int *board, int max_matches);
 
 // marienbad.c
 void get_move_marienbad(int *line, int *matches, int *board, int max_matches);
