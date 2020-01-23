@@ -20,6 +20,11 @@ void get_move_marienbad(int *line, int *matches, int *board, int max_matches)
             *matches = test_match;
             odd_nbrs = get_odd_nbrs(board);
         }
+        if (only_one_on_lines(board) && get_odd_nbrs(board) == 0) {
+            board[i] += test_match + 1;
+            get_params_last_line(i, matches, board, max_matches);
+            board[i] -= test_match + 1;
+        }
         board[i] += test_match;
     }
 }
@@ -63,4 +68,13 @@ int get_best_move_on_line(int line, int *matches, int *board, int max_matches)
         board[line] += i;
     }
     return (0);
+}
+
+int only_one_on_lines(int *board)
+{
+    for (int i = 1; i <= board[0]; i++) {
+        if (board[i] > 1)
+            return (0);
+    }
+    return (1);
 }
