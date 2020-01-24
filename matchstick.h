@@ -51,6 +51,5 @@ void get_move_marienbad(int *line, int *matches, int *board, int max_matches);
 void add_nbr_to_columns(int nbr, int columns[]);
 int get_odd_nbrs(int *board);
 int get_best_move_on_line(int line, int *matches, int *board, int max_matches);
-int only_one_on_lines(int *board);
 
 #endif // DEF_MATCHSTICK
