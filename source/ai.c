@@ -51,3 +51,15 @@ void get_params_last_line(int line, int *matches, int *board, int max_matches)
     if (*matches == 0)
         *matches = 1;
 }
+
+void get_random_params(int *line, int *matches, int *board, int max_matches)
+{
+    while (*line <= 0 && *matches <= 0) {
+        *line = random() % (board[0]) + 1;
+        *matches = random() % (max_matches) + 1;
+        if (*matches > board[*line]) {
+            *line = 0;
+            *matches = 0;
+        }
+    }
+}

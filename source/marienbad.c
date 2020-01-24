@@ -15,8 +15,7 @@ void get_move_marienbad(int *line, int *matches, int *board, int max_matches)
     for (int i = 1; i <= board[0]; i++) {
         get_best_move_on_line(i, &test_match, board, max_matches);
         board[i] -= test_match;
-printf("line : %i, matches : %i, odd_nbrs : %i\n", i, test_match, odd_nbrs);
-        if (board[*line] + test_match > 0 && get_odd_nbrs(board) <= odd_nbrs) {
+        if (board[*line] + test_match != 0 && get_odd_nbrs(board) <= odd_nbrs) {
             *line = i;
             *matches = test_match;
             odd_nbrs = get_odd_nbrs(board);
@@ -53,10 +52,10 @@ int get_best_move_on_line(int line, int *matches, int *board, int max_matches)
 {
     int odd_nbrs = 8;
 
-    if (board[line] <= 0)
+    if (board[line] == 0)
         return (0);
+    odd_nbrs = get_odd_nbrs(board);
     for (int i = 1; i <= max_matches && i <= board[line]; i++) {
-printf("matches : %i, odd_nbrs : %i\n", i, odd_nbrs);
         board[line] -= i;
         if (get_odd_nbrs(board) <= odd_nbrs) {
             *matches = i;
