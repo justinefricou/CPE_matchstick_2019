@@ -19,7 +19,7 @@ int is_positive_int(char *str);
 
 // get_board.c
 int create_board(int **board, int nb_lines);
-int my_get_nbr(char *s);
+int my_get_nbr(char *str);
 
 // display_board.c
 void display_board(int *board);

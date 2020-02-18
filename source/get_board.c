@@ -19,15 +19,15 @@ int create_board(int **board, int nb_lines)
     return (0);
 }
 
-int my_get_nbr(char *s)
+int my_get_nbr(char *str)
 {
     int nbr = 0;
     int i = 0;
 
-    for ( ; s[i] == '-' || s[i] == '+' || s[i] == '0'; i++);
-    for ( ; s[i] != 0; i++)
-        nbr = nbr * 10 + (s[i] - 48);
-    if (s[0] == '-')
+    for ( ; str[i] == '-' || str[i] == '+' || str[i] == '0'; i++);
+    for ( ; str[i] != 0; i++)
+        nbr = nbr * 10 + (str[i] - 48);
+    if (str[0] == '-')
         nbr = nbr * (-1);
     return (nbr);
 }
